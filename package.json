@@ -1,0 +1,23 @@
+{
+  "name": "node-socket",
+  "version": "1.0.0",
+  "description": "create a chat room with nodejs and websocket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SailorCai/node-socket.git"
+  },
+  "author": "SailorCai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SailorCai/node-socket/issues"
+  },
+  "homepage": "https://github.com/SailorCai/node-socket#readme",
+  "dependencies": {
+    "mime": "^2.4.0",
+    "socket.io": "^2.2.0"
+  }
+}
