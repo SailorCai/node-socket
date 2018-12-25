@@ -19,7 +19,7 @@ Chat.prototype.changeRoom = function(room) {
     });
 };
 
-// 处理聊天名利
+// 处理聊天名令
 Chat.prototype.processCommand = function(command) {
     var words = command.split(' ');
 
