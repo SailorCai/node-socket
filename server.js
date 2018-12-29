@@ -9,7 +9,6 @@ var mime = require('mime');
 var cache = {};
 
 var chatServer = require('./lib/chat_server');
-chatServer.listen(server);
 
 // 发送404 的函数
 function send404(response) {
@@ -65,6 +64,8 @@ var server = http.createServer(function(req, res){
 
     serveStatic(res, cache, absPath);
 });
+
+chatServer.listen(server);
 
 server.listen(3000, function() {
     console.log('server listening on port 3000.');

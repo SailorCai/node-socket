@@ -3,11 +3,11 @@ function divEscapedcontentElement(message) {
 };
 
 function divSystemContentElement(message) {
-    return $().html('<i>' + message + '</i>');
+    return $('<div></div>').html('<i>' + message + '</i>');
 };
 
 function processUserInput(chatApp, socket) {
-    var message = $('Esend-message').val();
+    var message = $('#send-message').val();
 
     var systemMessage;
 
@@ -18,19 +18,21 @@ function processUserInput(chatApp, socket) {
             $('#messages').append(divSystemContentElement(systemMessage));
         };
     }else{
+        chatApp.sendMessage($('#room').text(), message);
         $('#messages').append(divEscapedcontentElement(message));
-        $('#messages').scrollTo($('#message').prop('scrollHeight'));
+        $('#messages').scrollTop($('#messages').prop('scrollHeight'));
     };
 
     $('#send-message').val('');
 };
 
-var socket = io.connect();
+var socket = io.connect('localhost:3000');
 
 $(document).ready(function() {
     var chatApp = new Chat(socket);
 
-    socket.on('nameResult', function() {
+    socket.on('nameResult', function(result) {
+        console.log(result);
         var message;
 
         if(result.success) {
@@ -38,7 +40,7 @@ $(document).ready(function() {
         }else{
             message = result.message;
         };
-        $('#message').append(divSystemContentElement(message));;
+        $('#messages').append(divSystemContentElement(message));;
     });
 
     socket.on('joinResult', function(result) {
@@ -77,7 +79,8 @@ $(document).ready(function() {
 
     $('#send-message').focus();
 
-    $('#send-form').submit(function(){
+    $('#send-form').submit(function(e){
+        e.preventDefault();
         processUserInput(chatApp, socket);
 
         return false;
