@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input{height:35px;}
+        #send-form{padding:10px;}
+        ul li{font-size:14px; line-height: 20px;}
+        #send-button{width:50px;}
+    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +17,20 @@
 <body>
     <div id="conetent">
         <div id="room"></div>
-        <div id="room-list"></div>
+        <div id="room-list">
+            <div style="line-height:20px;text-align:center;">房间列表</div>
+        </div>
         <div id="messages"></div>
 
         <form id="send-form">
-            <input id="send-message">
-            <input id="send-button" type="submit" value="Send" />
+            <input type="text" placeholder="输入内容参与聊天" id="send-message">
+            <input id="send-button" type="submit" value="发送" />
 
             <div id="help">
-                Chat commands:
+                聊天命令:
                 <ul>
-                    <li>Change nickname: <code>/nick [username]</code></li>
-                    <li>Join/create room: <code>/join [room name]</code></li>
+                    <li>修改昵称： <code>/nick [昵称]</code></li>
+                    <li>加入/创建房间： <code>/join [房间名]</code></li>
                 </ul>
             </div>
         </form>

@@ -1,4 +1,11 @@
 function divEscapedcontentElement(message) {
+    return $('<div class="msg-box self"></div>').append($('<span></span>').text(message));
+};
+
+function divEscapedcontentElement(message) {
+    return $('<div class="msg-box self"></div>').append($('<span></span>').text(message));
+};
+function divEscapedcontentElement2(message) {
     return $('<div></div>').text(message);
 };
 
@@ -36,7 +43,8 @@ $(document).ready(function() {
         var message;
 
         if(result.success) {
-            message = 'You are now known as ' + result.name + '.';
+            message = '你当前的昵称是 ' + result.name + '.';
+            chatApp.user = result.name;
         }else{
             message = result.message;
         };
@@ -46,13 +54,13 @@ $(document).ready(function() {
     socket.on('joinResult', function(result) {
         $('#room').text(result.room);
 
-        $('#messages').append(divSystemContentElement('Room changed.'));
+        $('#messages').append(divSystemContentElement('您已加入新的房间.'));
     });
 
     socket.on('message', function(message) {
-        var newElement = $('<div></div>').text(message.text);
+        var newElement = $('<div class="msg-box"></div>').append($('<span></span>').text(message.text));
 
-        $('#message').append(newElement);
+        $('#messages').append(newElement);
     });
 
     socket.on('rooms', function(rooms) {
@@ -62,7 +70,7 @@ $(document).ready(function() {
             room = room.substring(1, room.length);
 
             if(room != '') {
-                $('#room-list').append(divEscapedcontentElement(room));
+                $('#room-list').append(divEscapedcontentElement2(room));
             };
         };
     });

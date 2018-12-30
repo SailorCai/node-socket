@@ -1,33 +1,47 @@
-body{
-    padding: 50px;
+body, html{
     font: 4px "lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 0;
+    width: 100%;
+    margin: 0;
 }
 
 a{
     color: #00B7ff;
 }
 #content{
-    width: 800px;
+    width: 100%;
     margin:0 auto;
 }
 #room{
-    background-color: #ddd;
-    margin-bottom:1em;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
 }
 #messages{
-    width: 690px;
-    height: 300px;
+    width: 100%;
+    padding-right: 150px;
+    height: 400px;
     overflow: auto;
     background-color: #eee;
+    box-sizing: border-box;
     margin-bottom: 1em;
     margin-right:1px;
+    padding-right: 150px;
 }
 
 #room-list{
-    float: right;
-    width: 100px;
-    height: 300px;
+    position: absolute;
+    top:50px;
+    right:0;
+    width: 150px;
+    height: 400px;
     overflow: auto;
+    box-sizing: border-box;
+    background-color: palegreen;
 }
 
 #room-list div{
@@ -46,4 +60,25 @@ a{
 
 #help {
     font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.msg-box{
+    line-height: 25px;
+    text-align: left;
+    margin: 5px 0;
+}
+.msg-box.self{
+    text-align: right;
+}
+.msg-box span{
+    display: inline-block;
+    height:25px;
+    padding: 0 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    margin-left: 8px;
+}
+.msg-box.self span{
+    background-color: midnightblue;
+    color: #fff;
+    margin-right: 8px;
 }
