@@ -14,7 +14,7 @@ var chatServer = require('./lib/chat_server');
 function send404(response) {
     response.writeHead(404, {'Content-Type': 'text/plain'});
 
-    response.write('Error 404: resource not fond');
+    response.write('Error 404: 龙哥说 资源没找到');
 
     response.end();
 };
@@ -67,7 +67,7 @@ var server = http.createServer(function(req, res){
 
 chatServer.listen(server);
 
-server.listen(3000, function() {
-    console.log('server listening on port 3000.');
+server.listen(3001, function() {
+    console.log('server listening on port 3001.');
 });
 

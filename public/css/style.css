@@ -46,9 +46,10 @@ a{
 
 #room-list div{
     border-bottom: 1px solid #eee;
+    cursor: pointer;
 }
 
-#room-list div:hover{
+#room-list #room-wrapper div:hover{
     background-color: #ddd;
 }
 

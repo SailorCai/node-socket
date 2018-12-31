@@ -12,7 +12,7 @@ Chat.prototype.sendMessage = function(room, text) {
     this.socket.emit('message', message);
 };
 
-// 便更房间的函数
+// 变更房间的函数
 Chat.prototype.changeRoom = function(room) {
     this.socket.emit('join', {
         newRoom: room
