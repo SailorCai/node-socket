@@ -30,7 +30,7 @@ function processUserInput(chatApp, socket) {
     $('#send-message').val('');
 };
 
-var socket = io.connect();
+var socket = io.connect('http://chat.ilunar.cn');
 
 $(document).ready(function() {
     var chatApp = new Chat(socket);
